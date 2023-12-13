@@ -1,9 +1,9 @@
 Instructions to run the app locally. 
 
-git clone https://github.com/nikhilar98/taskManager <br/>
-cd taskManager <br/>
-npm install <br/>
-npm start <br/>
+1. git clone https://github.com/nikhilar98/taskManager <br/>
+2. cd taskManager <br/>
+3. npm install <br/>
+4. npm start <br/>
 
 Live Link  : https://task-manager-self-sigma.vercel.app/ 
 
