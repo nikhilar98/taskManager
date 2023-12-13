@@ -1,13 +1,16 @@
 import { useContext, useState } from "react"
 import { appContext } from "../App"
+import { Button } from "@mui/material"
 
-export default function CreateTaskForm(props){
+export default function CreateTaskForm(){
 
     const [title,setTitle] = useState('')
     const [description,setDescription] = useState('')
-    const [status,setStatus] = useState('toDo')
+    const [status,setStatus] = useState('')
     const [formErrors,setFormErrors] = useState({})
+    const {taskDispatch} = useContext(appContext)
     const errors = {}
+    console.log('-------')
 
     function runValidations() { 
         if(title===''){
@@ -20,9 +23,6 @@ export default function CreateTaskForm(props){
             errors.status = 'Status is required.'
         }
     }
-
-
-    const {taskDispatch} = useContext(appContext)
     
 
     function handleSubmit(e){
@@ -42,7 +42,7 @@ export default function CreateTaskForm(props){
             taskDispatch({type:'ADD_TASK',payload:formData})
             setTitle('')
             setDescription('')
-            setStatus('toDo')
+            setStatus('')
         }
         else {
             setFormErrors(errors)
@@ -64,13 +64,13 @@ export default function CreateTaskForm(props){
                     <textarea value={description} onChange={(e)=>{setDescription(e.target.value)}} id='description' rows="4" cols="40"/>
                     <span className="errorMessage">{formErrors.description && formErrors.description}</span><br/>
                     <label> Select the current status of your task : </label>
-                    <input type="radio" checked={status==='toDo'} value='toDo' name="status" id='toDo' onChange={(e)=>{setStatus(e.target.value)}}/>
+                    <input type="radio" checked={status==='to do'} value='to do' name="status" id='toDo' onChange={(e)=>{setStatus(e.target.value)}}/>
                     <label htmlFor="toDo">To Do</label>
-                    <input type="radio" checked={status==='inProgress'} value='inProgress' name="status" id='inProgress' onChange={(e)=>{setStatus(e.target.value)}}/>
+                    <input type="radio" checked={status==='in progress'} value='in progress' name="status" id='inProgress' onChange={(e)=>{setStatus(e.target.value)}}/>
                     <label htmlFor="inProgress">In progress</label><br/>
-                    <span className="errorMessage">{formErrors.status && formErrors.status}</span>
+                    <span className="errorMessage">{formErrors.status && formErrors.status}</span><br/>
                     
-                    <input type="submit" value="create task" />
+                    <Button type="submit" variant='contained' sx={{backgroundColor:'green'}}>create</Button>
                 </fieldset>
             </form>
         </div>

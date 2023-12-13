@@ -2,6 +2,8 @@ import { Box, Button, Typography } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { useContext, useEffect, useState } from 'react';
 import { appContext } from '../App';
+import color from "./color";
+
 const style = {
     position: 'absolute' ,
     top: '50%',
@@ -55,6 +57,7 @@ export default function TaskDetails(){
         taskDispatch({type:'MODAL-CLOSE'})
     }
 
+
     function handleUpdate(e){
         e.preventDefault() 
 
@@ -95,14 +98,14 @@ export default function TaskDetails(){
                             <span className="errorMessage">{formErrors.title && formErrors.title}</span><br/>
 
                             <label htmlFor="edit-description">Enter description</label><br/>
-                            <textarea value={description} onChange={(e)=>{setDescription(e.target.value)}} id='edit-description'/>
+                            <textarea value={description} onChange={(e)=>{setDescription(e.target.value)}} id='edit-description' rows="4" cols="40"/>
                             <span className="errorMessage">{formErrors.description && formErrors.description}</span><br/>
 
-                            <label> Select the current status of your task : </label>
-                            <input type="radio" checked={status==='toDo'} value='toDo' name="status" id='edit-toDo' onChange={(e)=>{setStatus(e.target.value)}}/>
+                            <label> Current status : </label>
+                            <input type="radio" checked={status==='to do'} value='to do' name="status" id='edit-toDo' onChange={(e)=>{setStatus(e.target.value)}}/>
                             <label htmlFor="edit-toDo">To Do</label>
 
-                            <input type="radio" checked={status==='inProgress'} value='inProgress' name="status" id='edit-inProgress' onChange={(e)=>{setStatus(e.target.value)}}/>
+                            <input type="radio" checked={status==='in progress'} value='in progress' name="status" id='edit-inProgress' onChange={(e)=>{setStatus(e.target.value)}}/>
                             <label htmlFor="edit-inProgress">In progress</label>
 
                             <input type="radio" checked={status==='completed'} value='completed' name="status" id='edit-completed' onChange={(e)=>{setStatus(e.target.value)}}/>
@@ -116,17 +119,17 @@ export default function TaskDetails(){
 
                             <>
                                 <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-                                    <Typography id="modal-modal-title" variant="h2" component="h2">
+                                    <Typography id="modal-modal-title" variant="h2">
                                         {task?.title}
                                     </Typography>
-                                    <Button sx={{color:task?.status==='toDo'?'orange':'green'}}> {task?.status}</Button>
+                                    <Button sx={{color:color(task?.status)}}> {task?.status}</Button>
                                 </div>
                                     <Typography id="modal-modal-description" sx={{ m: 10 }}>
                                         {task?.description}
                                     </Typography>
                             </> 
                         }
-                        { !tasksState.isEdit && <Button type='button' onClick={()=>{taskDispatch({type:'IS_EDIT_ON'})}}>Edit</Button>}
+                        { !tasksState.isEdit && <Button type='button' variant='contained' onClick={()=>{taskDispatch({type:'IS_EDIT_ON'})}}>Edit</Button>}
                     </Box>
                 </Modal>
         </div>

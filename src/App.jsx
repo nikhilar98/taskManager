@@ -31,10 +31,16 @@ export function App() {
   return (
     <appContext.Provider value={{tasksState,taskDispatch}}>
       <div>
-          <h1>Title</h1>
-          <CreateTaskForm/>
-          <h2>Your tasks - ( {tasksState.tasks.length} )</h2>
-          <TasksListing/>
+        <div className="container">
+          <div className="formContainer">
+            <h1>Task Manager</h1>
+            <CreateTaskForm/>
+          </div>
+          <div className='listingContainer'>
+            <h2>My tasks - {tasksState.tasks.length}</h2>
+            <TasksListing/>
+          </div>
+        </div>
           <TaskDetails/>
           <ToastContainer/>
       </div>
