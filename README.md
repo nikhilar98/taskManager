@@ -12,5 +12,5 @@ User can set the status of a task as 'to do' or 'in progress' while he/she creat
 
 
 Decisions: 
-The state of the application is managed using React's useReducer Hook as it's better suited for managing complex data types. The state and dispatch functions are passed down to all the child components using React's useContext API, so they can directly access the state.
+The state of the application is managed using React's useReducer Hook as it's better suited for managing complex data types. The state and dispatch function are passed down to all the child components using React's useContext API, so they can directly access the state.
 
