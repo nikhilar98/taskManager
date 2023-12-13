@@ -4,8 +4,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
-import color from "./color";
+import color from "../helpers/color";
 import { Box, LinearProgress } from "@mui/material";
+
 
 export default function TasksListing(props){
 

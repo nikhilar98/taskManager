@@ -60,12 +60,13 @@ ul{
 .listingContainer{
     min-width: 500px;
 }
+.form-container{
+    width: 50%;
+}
+
 @media screen  and (max-width:1210px){
         .container{
             flex-direction: column;
         }
-        .form-container{
-            width: 50%;
-        }
-
+        
 }

@@ -3,7 +3,6 @@ import taskReducer from "./reducers/taskReducer";
 import TasksListing from "./components/TasksListing";
 import CreateTaskForm from "./components/CreateTaskForm";
 import TaskDetails from "./components/TaskDetails";
-import ToastContainer from "./components/ToastContainer";
 
 
 export const appContext = createContext()
@@ -17,7 +16,6 @@ export function App() {
 
   useEffect(()=>{
     const data = localStorage.getItem('tasks')
-    console.log('data',data)
     if(data) { 
       taskDispatch({type:'SET_TASKS',payload:JSON.parse(localStorage.getItem('tasks'))})
     }
@@ -42,7 +40,6 @@ export function App() {
           </div>
         </div>
           <TaskDetails/>
-          <ToastContainer/>
       </div>
     </appContext.Provider>
   );

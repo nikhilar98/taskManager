@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { useContext, useEffect, useState } from 'react';
 import { appContext } from '../App';
-import color from "./color";
+import color from "../helpers/color";
 
 const style = {
     position: 'absolute' ,

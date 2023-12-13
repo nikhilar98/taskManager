@@ -2,6 +2,8 @@ import { useContext, useState } from "react"
 import { appContext } from "../App"
 import { Button } from "@mui/material"
 
+
+
 export default function CreateTaskForm(){
 
     const [title,setTitle] = useState('')
@@ -63,7 +65,7 @@ export default function CreateTaskForm(){
                     <label htmlFor="description">Enter description</label><br/>
                     <textarea value={description} onChange={(e)=>{setDescription(e.target.value)}} id='description' rows="4" cols="40"/>
                     <span className="errorMessage">{formErrors.description && formErrors.description}</span><br/>
-                    <label> Select the current status of your task : </label>
+                    <label> Status of task : </label>
                     <input type="radio" checked={status==='to do'} value='to do' name="status" id='toDo' onChange={(e)=>{setStatus(e.target.value)}}/>
                     <label htmlFor="toDo">To Do</label>
                     <input type="radio" checked={status==='in progress'} value='in progress' name="status" id='inProgress' onChange={(e)=>{setStatus(e.target.value)}}/>
