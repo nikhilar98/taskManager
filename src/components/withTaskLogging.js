@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const withTaskLogging = (WrappedComponent) => {
 
-    function WithTaskLogging(props) {
+    function WithTaskLogging() {
 
       const logTaskAction = (action, task) => {
         toast.success(`${action}: ${task?.title}`)
@@ -11,7 +11,7 @@ const withTaskLogging = (WrappedComponent) => {
   
       return (
        
-          <WrappedComponent {...props} logTaskAction={logTaskAction} />
+          <WrappedComponent logTaskAction={logTaskAction} />
         
       );
     };

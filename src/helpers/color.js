@@ -1,8 +1,8 @@
 export default function color(str){
-    if(str=='to do'){
+    if(str==='to do'){
         return 'red'
     }
-    else if(str=='completed'){
+    else if(str==='completed'){
         return 'green'
     }
     else {

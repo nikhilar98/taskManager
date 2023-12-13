@@ -17,9 +17,9 @@ const style = {
     borderRadius:'20px'
   };
 
-export default function TaskDetails({logTaskAction}){
+export default function TaskDetails(){
 
-    const {tasksState,taskDispatch} = useContext(appContext)
+    const {tasksState,taskDispatch,logTaskAction} = useContext(appContext)
 
     const task = tasksState.tasks.find(ele=>ele.id===tasksState.currentTaskId)
     console.log('selected task',task)

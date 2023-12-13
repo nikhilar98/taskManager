@@ -4,13 +4,14 @@ import { Button } from "@mui/material"
 
 
 
-export default function CreateTaskForm({logTaskAction}){
+export default function CreateTaskForm(){
 
     const [title,setTitle] = useState('')
     const [description,setDescription] = useState('')
     const [status,setStatus] = useState('')
     const [formErrors,setFormErrors] = useState({})
-    const {taskDispatch} = useContext(appContext)
+    const {taskDispatch,logTaskAction} = useContext(appContext)
+    
     const errors = {}
     console.log('-------')
 

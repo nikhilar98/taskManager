@@ -28,19 +28,19 @@ export const appContext = createContext()
 
 
   return (
-    <appContext.Provider value={{tasksState,taskDispatch}}>
+    <appContext.Provider value={{tasksState,taskDispatch,logTaskAction}}>
       <div>
         <div className="container">
           <div className="formContainer">
             <h1>Task Manager</h1>
-            <CreateTaskForm logTaskAction={logTaskAction}/>
+            <CreateTaskForm/>
           </div>
           <div className='listingContainer'>
             <h2>My tasks - {tasksState.tasks.length}</h2>
-            <TasksListing logTaskAction={logTaskAction}/>
+            <TasksListing />
           </div>
         </div>
-          <TaskDetails logTaskAction={logTaskAction}/>
+          <TaskDetails/>
       </div>
     </appContext.Provider>
   );
