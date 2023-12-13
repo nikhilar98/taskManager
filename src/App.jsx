@@ -3,11 +3,12 @@ import taskReducer from "./reducers/taskReducer";
 import TasksListing from "./components/TasksListing";
 import CreateTaskForm from "./components/CreateTaskForm";
 import TaskDetails from "./components/TaskDetails";
+import withTaskLogging from "./components/withTaskLogging";
 
 
 export const appContext = createContext()
 
-export function App() {
+ const App=({logTaskAction})=> {
 
   const [tasksState,taskDispatch] = useReducer(taskReducer,{tasks:[],modalOpen:false,currentTaskId:'',isEdit:false})
   
@@ -32,16 +33,17 @@ export function App() {
         <div className="container">
           <div className="formContainer">
             <h1>Task Manager</h1>
-            <CreateTaskForm/>
+            <CreateTaskForm logTaskAction={logTaskAction}/>
           </div>
           <div className='listingContainer'>
             <h2>My tasks - {tasksState.tasks.length}</h2>
-            <TasksListing/>
+            <TasksListing logTaskAction={logTaskAction}/>
           </div>
         </div>
-          <TaskDetails/>
+          <TaskDetails logTaskAction={logTaskAction}/>
       </div>
     </appContext.Provider>
   );
 }
 
+export default withTaskLogging(App)

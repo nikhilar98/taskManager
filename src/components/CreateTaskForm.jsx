@@ -4,7 +4,7 @@ import { Button } from "@mui/material"
 
 
 
-export default function CreateTaskForm(){
+export default function CreateTaskForm({logTaskAction}){
 
     const [title,setTitle] = useState('')
     const [description,setDescription] = useState('')
@@ -42,6 +42,7 @@ export default function CreateTaskForm(){
             }
     
             taskDispatch({type:'ADD_TASK',payload:formData})
+            logTaskAction('Task added succesfully',formData)
             setTitle('')
             setDescription('')
             setStatus('')

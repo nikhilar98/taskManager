@@ -8,7 +8,7 @@ import color from "../helpers/color";
 import { Box, LinearProgress } from "@mui/material";
 
 
-export default function TasksListing(props){
+export default function TasksListing({logTaskAction}){
 
     const {tasksState,taskDispatch} = useContext(appContext)
     const [filter,setFilter] = useState('')
@@ -23,6 +23,8 @@ export default function TasksListing(props){
 
     function handleDelete(id){
         taskDispatch({type:'DELETE-TASK',payload:id})
+        const task = tasksState.tasks.find(ele=>ele.id==id)
+        logTaskAction('Task deleted successfully',task)
     }
 
     const completionPercentage=useMemo(()=>{

@@ -17,7 +17,7 @@ const style = {
     borderRadius:'20px'
   };
 
-export default function TaskDetails(){
+export default function TaskDetails({logTaskAction}){
 
     const {tasksState,taskDispatch} = useContext(appContext)
 
@@ -72,6 +72,7 @@ export default function TaskDetails(){
             }
             
             taskDispatch({type:'UPDATE_TASK',payload:formData})
+            logTaskAction('Task updated successfully',formData)
         }
         else 
         { 
