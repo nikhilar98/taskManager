@@ -1,6 +1,5 @@
 import { useContext, useState } from "react"
 import { appContext } from "../App"
-import { Button } from "@mui/material"
 
 
 
@@ -13,7 +12,7 @@ export default function CreateTaskForm(){
     const {taskDispatch,logTaskAction} = useContext(appContext)
     
     const errors = {}
-    console.log('-------')
+
 
     function runValidations() { 
         if(title===''){
@@ -57,7 +56,7 @@ export default function CreateTaskForm(){
 
 
     return (
-        <div className="form-container">
+        <div className="form-container" data-testid='taskform-1'>
             <form onSubmit={handleSubmit}>  
                 <fieldset>
                     <legend>Create task</legend>
@@ -74,7 +73,7 @@ export default function CreateTaskForm(){
                     <label htmlFor="inProgress">In progress</label><br/>
                     <span className="errorMessage">{formErrors.status && formErrors.status}</span><br/>
                     
-                    <Button type="submit" variant='contained' sx={{backgroundColor:'green'}}>create</Button>
+                    <button type="submit" className="submit-button">CREATE</button>
                 </fieldset>
             </form>
         </div>
