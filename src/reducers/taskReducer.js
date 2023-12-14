@@ -1,7 +1,6 @@
 export default function taskReducer(state,action) {  
     switch(action.type){
         case 'SET_TASKS' : { 
-            console.log('-------',action.payload)
             return {...state,tasks:action.payload}
         }
         case 'ADD_TASK' : { 

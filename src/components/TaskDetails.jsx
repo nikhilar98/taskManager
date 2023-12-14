@@ -23,8 +23,6 @@ export default function TaskDetails(){
 
     const task = tasksState.tasks.find(ele=>ele.id===tasksState.currentTaskId)
     
-    console.log('selected task',task)
-
     const [title,setTitle] = useState('')
     const [description,setDescription] = useState('')
     const [status,setStatus] = useState('')

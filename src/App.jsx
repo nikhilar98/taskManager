@@ -12,9 +12,6 @@ export const appContext = createContext()
 
   const [tasksState,taskDispatch] = useReducer(taskReducer,{tasks:[],modalOpen:false,currentTaskId:'',isEdit:false})
   
-  console.log(tasksState)
-
-
   useEffect(()=>{
     const data = localStorage.getItem('tasks')
     if(data) { 

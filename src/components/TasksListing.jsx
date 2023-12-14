@@ -14,10 +14,7 @@ export default function TasksListing(){
     const [filter,setFilter] = useState('')
     
 
-    console.log('tasksState',tasksState.tasks)
-
     function handleCardClick(id){
-        console.log('clicked card : ',id)
         taskDispatch({type:'MODAL-OPEN',payload:id})
     }
 
